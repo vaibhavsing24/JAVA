@@ -1,0 +1,48 @@
+                    import java.util.Scanner;
+                    
+                    public class Assignment1 {
+                        public static void main(String args[]){
+                            Scanner sc = new Scanner(System.in);
+                            int a,b,c,result;
+                            char d;
+                    
+                            System.out.println("Enter the two operands on which operations are to be performed");
+                            a=sc.nextInt();
+                            b=sc.nextInt();
+                    
+                            do{
+                                System.out.println("Operations are :");
+                                System.out.println("1.Addition");
+                                System.out.println("2.Subtraction");
+                                System.out.println("3.Multiplication");
+                                System.out.println("4.Division");
+                    
+                                c=sc.nextInt();
+                                switch(c)
+                                {
+                                    case 1:
+                                        result=a+b;
+                                        System.out.println("Addition is " +result);
+                                        break;
+                                    case 2:
+                                        result=a-b;
+                                        System.out.println("Subtraction is " +result);
+                                        break;
+                                    case 3:
+                                        result=a*b;
+                                        System.out.println("Multiplication is " +result);
+                                        break;
+                                    case 4:
+                                        result=a/b;
+                                        System.out.println("Division is " +result);
+                                        break;
+                                    default :
+                                        System.out.println("Invalid Operation");
+                    
+                                }
+                                System.out.println("Do you want to continue enter (Y/N)");
+                                d=sc.next().charAt(0);
+                            }while(d=='Y' || d=='y');
+                    
+                        }
+                    }

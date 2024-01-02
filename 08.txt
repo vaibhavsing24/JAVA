@@ -1,0 +1,68 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
+/**
+ *
+ * @author Lenovo ThinkPad
+ */
+import java.util.Scanner;
+
+public class ExceptionHandlingNumeric {
+
+    public static void divideNumbers(int a, int b) {
+        try {
+            int result = a / b;
+            System.out.println("The result of " + a + " divided by " + b + " is: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero is not allowed!");
+        }
+    }
+
+    public static void array(int myArray[]) {
+        try {
+            int value = myArray[10];
+            System.out.println("Value at index 10: " + value);
+        } catch (ArrayIndexOutOfBoundsException e) {
+
+            System.out.println("Exception caught: " + e.getMessage());
+        }
+
+        System.out.println("Program Proceed");
+    }
+
+    public static void main(String[] args) {
+        int num;
+        String choice;
+        int[] myArray = {1, 2, 3, 4, 5};
+        do {
+            System.out.println("\n********MENU*********");
+            System.out.println("1.Numeric Exception");
+            System.out.println("2.Array Exception");
+            System.out.println("Enter the choice for exception");
+
+            Scanner input = new Scanner(System.in);
+            num = input.nextInt();
+            input.nextLine();      
+
+            switch (num) {
+                case 1: {
+                    divideNumbers(10, 2);  // No exception raised
+                    divideNumbers(5, 0);   // Division by zero exception
+                }
+                break;
+                case 2: {
+                    array(myArray);
+                }
+                break;
+                default: {
+                    System.out.println("Invalid input");
+                }
+            }
+            System.out.println("Do you want to Continue(Y||N)");
+            choice = input.nextLine();
+
+        } while (choice.equalsIgnoreCase("Y"));
+    }
+}

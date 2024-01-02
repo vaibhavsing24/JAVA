@@ -1,0 +1,83 @@
+import java.util.Scanner;
+
+interface Bird {
+
+    void fly();
+
+    String COLOR = "Gray";
+};
+
+interface Aquatic {
+
+    void swim();
+
+    boolean USES_OXYGEN_FROM_WATER = true;
+};
+
+class Sparrow implements Bird {
+
+    public void fly() {
+        System.out.println("Sparrows are gray colored birds");
+        System.out.println("Sparrows have white cheeks");
+    }
+};
+
+class Fish implements Aquatic {
+
+    public void swim() {
+        System.out.println("Fish have fins");
+        System.out.println("Fish uses oxygen from water");
+    }
+};
+
+class Duck implements Bird, Aquatic {
+
+    public void fly() {
+        System.out.println("Duck has 2 wing");
+        System.out.println("Duck can fly");
+    }
+
+    public void swim() {
+        System.out.println("Duck can Swim");
+    }
+};
+
+public class InterfaceAqua {
+
+    public static void main(String[] args) {
+        int num;
+        char choice;
+        do {
+            System.out.println("\n**********MENU**********");
+            System.out.println("Press 1 to get info about Duck");
+            System.out.println("Press 2 to get info about Sparrow");
+            System.out.println("Press 3 to get info about Fish");
+            Scanner input = new Scanner(System.in);
+            num = input.nextInt();
+            Duck d = new Duck();
+            Fish f = new Fish();
+            Sparrow s = new Sparrow();
+            switch (num) {
+                case 1:
+                    d.fly();
+                    d.swim();
+                    System.out.println("Color: " + Bird.COLOR);
+                    System.out.println("Uses Oxygen from Water: " + Aquatic.USES_OXYGEN_FROM_WATER);
+
+                    break;
+                case 2:
+                    f.swim();
+                    System.out.println("Color: " + Bird.COLOR);
+                    break;
+                case 3:
+                    s.fly();
+                    System.out.println("Uses Oxygen from Water: " + Aquatic.USES_OXYGEN_FROM_WATER);
+                    break;
+                default:
+                    System.out.println("Invalid Input");
+            }
+            System.out.println("Do you want to Continue(Y||N)");
+            choice = input.next().charAt(0);
+        } while (choice == 'Y' || choice == 'y');
+    }
+}

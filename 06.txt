@@ -1,0 +1,74 @@
+                    import java.util.Scanner;
+
+                    abstract class Vehicle {
+
+                        protected String model;
+                        protected int price;
+                        protected int cc;
+
+                        public abstract void getDetails();
+
+                        public abstract void displayDetails();
+                    }
+
+                    class Car extends Vehicle {
+
+                        public void getDetails() {
+                            Scanner scanner = new Scanner(System.in);
+                            System.out.println("Enter Car details:");
+                            System.out.print("Enter model: ");
+                            model = scanner.nextLine();
+                            System.out.print("Enter price: ");
+                            price = scanner.nextInt();
+                            System.out.print("Enter CC: ");
+                            cc = scanner.nextInt();
+                        }
+
+                        public void displayDetails() {
+                            System.out.println("\nCar Details:");
+                            System.out.println("Model: " + model);
+                            System.out.println("Price: " + price);
+                            System.out.println("CC: " + cc);
+                            System.out.println();
+                        }
+                    }
+
+                    class Bike extends Vehicle {
+
+                        public void getDetails() {
+                            Scanner scanner = new Scanner(System.in);
+                            System.out.println("Enter Bike details:");
+                            System.out.print("Enter model: ");
+                            model = scanner.nextLine();
+                            System.out.print("Enter price: ");
+                            price = scanner.nextInt();
+                            System.out.print("Enter CC: ");
+                            cc = scanner.nextInt();
+                        }
+
+                        public void displayDetails() {
+                            System.out.println("\nBike Details:");
+                            System.out.println("Model: " + model);
+                            System.out.println("Price: " + price);
+                            System.out.println("CC: " + cc);
+                        }
+                    }
+
+                    public class AbstractExample {
+                        public static void main(String[] args) {
+                            Scanner scanner = new Scanner(System.in);
+
+                            Vehicle car = new Car();
+                            car.getDetails();
+                            car.displayDetails();
+
+                            Vehicle bike = new Bike();
+                            bike.getDetails();
+                            bike.displayDetails();
+
+                            scanner.close();
+                        }
+                    }
+
+                                        
+                    
